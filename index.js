@@ -1,14 +1,34 @@
 import { parseUsernameArg } from './src/args.mjs';
+import * as commands from './src/index.mjs';
 
 const startApp = async () => {
   const userName = parseUsernameArg();
-  console.log(`Welcome to the File Manager, ${userName}!`);
-  console.log(`You are currently in ${process.cwd()}\n`);
+  process.stdout.write(`Welcome to the File Manager, ${userName}!\n`);
+
+  const showWorkingDirectory = () => {
+    process.stdout.write(`You are currently in ${process.cwd()}\n`);
+  };
 
   const onExit = () => {
-    console.log(`Thank you for using File Manager, ${userName}, goodbye!`);
+    process.stdout.write(`Thank you for using File Manager, ${userName}, goodbye!\n`);
     process.exit(0);
   };
+
+  showWorkingDirectory();
+
+  process.stdin.on('data', (data) => {
+    const parsedData = data.toString().trim().split(' ');
+    const command = parsedData?.[0];
+    const args = parsedData.slice(1);
+    if (commands[command]) {
+      commands[command](args);
+    } else if (command === '.exit') {
+      onExit();
+    } else {
+      process.stdout.write('Invalid input\n');
+    }
+    showWorkingDirectory();
+  });
 
   process.on('SIGINT', onExit);
 };
