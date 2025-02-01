@@ -1,9 +1,12 @@
 import { parseUsernameArg } from './src/args.mjs';
+import os from 'os';
 import * as commands from './src/index.mjs';
 
 const startApp = async () => {
   const userName = parseUsernameArg();
   process.stdout.write(`Welcome to the File Manager, ${userName}!\n`);
+  const homedir = os.homedir();
+  process.chdir(homedir);
 
   const showWorkingDirectory = () => {
     process.stdout.write(`You are currently in ${process.cwd()}\n`);
