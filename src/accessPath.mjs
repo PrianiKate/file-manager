@@ -2,11 +2,14 @@ import fs from 'fs';
 import path from 'path';
 
 export const accessPath = (userPath) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _) => {
     const PATH = path.resolve(process.cwd(), userPath);
-    fs.access(PATH, fs.constants.F_OK, (err) => {
-      if (err) reject();
-      else resolve(userPath);
+    fs.access(PATH, (err, _) => {
+      if (err === null) {
+        resolve(true);
+      } else {
+        resolve();
+      }
     });
   });
 }
