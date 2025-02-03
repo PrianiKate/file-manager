@@ -1,6 +1,7 @@
 import { accessPath } from './accessPath.mjs';
 import { createBrotliDecompress } from 'zlib';
 import fs from 'fs';
+import path from 'path';
 
 export const decompress = async (args) => {
   const file = args[0];
@@ -10,7 +11,7 @@ export const decompress = async (args) => {
     return;
   }
   const fileExistsStatus = await accessPath(file);
-  const destinationPath = destinationFile.slice(0, destinationFile.lastIndexOf('/'));
+  const destinationPath = destinationFile.slice(0, destinationFile.lastIndexOf(path.sep));
   const destinationPathExistsStatus = await accessPath(destinationPath);
   if (!fileExistsStatus || !destinationPathExistsStatus) {
     process.stdout.write('Operation failed\n');
