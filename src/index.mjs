@@ -4,6 +4,8 @@ import { hash } from './hash.mjs';
 import { compress } from './compress.mjs';
 import { decompress } from './decompress.mjs';
 import { cd } from './cd.mjs';
+import { cat } from './cat.mjs';
+import { add } from './add.mjs';
 
 export {
   up,
@@ -12,4 +14,6 @@ export {
   compress,
   decompress,
   cd,
+  cat,
+  add,
 };
