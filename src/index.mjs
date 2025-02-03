@@ -6,6 +6,8 @@ import { decompress } from './decompress.mjs';
 import { cd } from './cd.mjs';
 import { cat } from './cat.mjs';
 import { add } from './add.mjs';
+import { mkdir } from './mkdir.mjs';
+import { rm } from './rm.mjs';
 
 export {
   up,
@@ -16,4 +18,6 @@ export {
   cd,
   cat,
   add,
+  mkdir,
+  rm,
 };
