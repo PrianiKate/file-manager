@@ -11,6 +11,7 @@ import { rm } from './rm.mjs';
 import { rn } from './rn.mjs';
 import { cp } from './cp.mjs';
 import { mv } from './mv.mjs';
+import { ls } from './ls.mjs';
 
 export {
   up,
@@ -26,4 +27,5 @@ export {
   rn,
   cp,
   mv,
+  ls,
 };
