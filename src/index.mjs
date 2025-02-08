@@ -10,6 +10,7 @@ import { mkdir } from './mkdir.mjs';
 import { rm } from './rm.mjs';
 import { rn } from './rn.mjs';
 import { cp } from './cp.mjs';
+import { mv } from './mv.mjs';
 
 export {
   up,
@@ -24,4 +25,5 @@ export {
   rm,
   rn,
   cp,
+  mv,
 };
