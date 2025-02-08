@@ -8,6 +8,7 @@ import { cat } from './cat.mjs';
 import { add } from './add.mjs';
 import { mkdir } from './mkdir.mjs';
 import { rm } from './rm.mjs';
+import { rn } from './rn.mjs';
 
 export {
   up,
@@ -20,4 +21,5 @@ export {
   add,
   mkdir,
   rm,
+  rn,
 };
