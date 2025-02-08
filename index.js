@@ -19,12 +19,12 @@ const startApp = async () => {
 
   showWorkingDirectory();
 
-  process.stdin.on('data', (data) => {
+  process.stdin.on('data', async (data) => {
     const parsedData = data.toString().trim().split(' ');
     const command = parsedData?.[0];
     const args = parsedData.slice(1);
     if (commands[command]) {
-      commands[command](args);
+      await commands[command](args);
     } else if (command === '.exit') {
       onExit();
     } else {

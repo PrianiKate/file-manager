@@ -8,7 +8,7 @@ export const cd = async (args) => {
     return;
   }
   const currentDir = process.cwd();
-  if (!folder.startsWith(currentDir)) {
+  if (!path.isAbsolute(folder)) {
     folder = path.join(currentDir, folder);
   }
   const pathExistsStatus = await accessPath(folder, true);
